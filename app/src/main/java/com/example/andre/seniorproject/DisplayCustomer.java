@@ -21,7 +21,7 @@ public class DisplayCustomer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_customer);
+        setContentView(R.layout.display_customer);
 
         Intent intent= getIntent();
 

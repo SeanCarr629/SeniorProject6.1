@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,8 +18,8 @@
             android:background="@android:color/black"
             android:contentDescription="@string/textCust"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButtonSearch"/>
-           ## app:srcCompat="@mipmap/addcust_img" />
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonSearch"
+            app:srcCompat="@mipmap/ic_addcust_img" />
 
         <TextView
             android:id="@+id/textCust"
@@ -43,9 +44,9 @@
             android:background="@android:color/black"
             android:contentDescription="@string/textSearch"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-           ## app:srcCompat="@mipmap/search_img"
-           ## tools:srcCompat="@mipmap/search_img" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/search_img"
+            tools:srcCompat="@mipmap/ic_search_img" />
 
         <TextView
             android:id="@+id/textSearch"
@@ -61,10 +62,27 @@
             app:layout_constraintStart_toEndOf="@+id/imageButtonSearch"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/buttonLogout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Logout" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Button"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddCustomer"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp" />
 
 </android.support.constraint.ConstraintLayout>

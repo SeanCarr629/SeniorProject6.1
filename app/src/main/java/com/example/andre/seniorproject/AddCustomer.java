@@ -14,14 +14,13 @@ public class AddCustomer extends AppCompatActivity {
 
     EditText firstName1,lastName1,companyName1,phoneNumber1,emailAddress1,address1,state1,zipCode1;
     Button addCust;
-    FirebaseDatabase database;
-    database = FirebaseDatabase.getInstance();
+
     DatabaseReference reff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_customer);
+        setContentView(R.layout.add_customer);
 
         firstName1 = (EditText) findViewById(R.id.FirstName);
         lastName1 = (EditText) findViewById(R.id.LastName);
@@ -34,7 +33,7 @@ public class AddCustomer extends AppCompatActivity {
         addCust = (Button) findViewById(R.id.buttonAddCustomer);
 
 
-        reff = database.getReference("Customers");
+        reff = FirebaseDatabase.getInstance().getReference("Customers");
 
 
         addCust.setOnClickListener(new View.OnClickListener() {
