@@ -45,8 +45,7 @@
             android:contentDescription="@string/textSearch"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/search_img"
-            tools:srcCompat="@mipmap/ic_search_img" />
+            tools:srcCompat="@drawable/search" />
 
         <TextView
             android:id="@+id/textSearch"
