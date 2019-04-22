@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#0277BD"
     tools:context=".AddNewItem">
 
@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/invmanageicon" />
 
     <EditText
-        android:id="@+id/etItemName"
+        android:id="@+id/etDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -51,7 +51,7 @@
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toEndOf="@+id/etItemName"
+        app:layout_constraintStart_toEndOf="@+id/etDate"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
@@ -66,5 +66,6 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etItemName" />
+        app:layout_constraintTop_toBottomOf="@+id/etDate" />
+
 </android.support.constraint.ConstraintLayout>

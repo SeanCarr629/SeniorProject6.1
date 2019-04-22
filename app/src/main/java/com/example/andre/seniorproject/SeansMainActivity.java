@@ -35,7 +35,7 @@ public class SeansMainActivity extends AppCompatActivity {
     public void OnClick3(View v)
     {
 
-        Intent i = new Intent(this,OrderForm.class);
+        Intent i = new Intent(this, Orders.class);
 
         startActivity(i);
     }

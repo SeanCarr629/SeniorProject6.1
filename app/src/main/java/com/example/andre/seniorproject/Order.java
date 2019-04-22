@@ -7,16 +7,24 @@ import java.util.ArrayList;
 public class Order implements Serializable {
 
 
-String date;
-ArrayList<Inventory> inventory = new ArrayList<Inventory>();
+    String date;
+    ArrayList<Inventory> inventory;
+    Inventory items;
 
+
+    public Order ()
+    {
+        this.date = "0";
+        this.inventory = new ArrayList<Inventory>();
+
+    }
 
 
 
     public Order(String _date, Inventory items) {
 
         date = _date;
-
+        this.inventory = new ArrayList<Inventory>();
         inventory.add(items);
 
 
@@ -33,13 +41,25 @@ ArrayList<Inventory> inventory = new ArrayList<Inventory>();
     }
 
     public ArrayList<Inventory> getInventory() {
-        return inventory;
+        return this.inventory;
     }
 
     public void setInventory(ArrayList<Inventory> inventory) {
         this.inventory = inventory;
     }
 
+    public void addItem (Inventory item)
+    {
 
+        inventory.add(item);
+
+
+    }
+
+    public String getItemName(int j) {
+
+        return this.inventory.get(j).getItemName();
+
+    }
 
 }

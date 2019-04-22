@@ -1,6 +1,8 @@
 package com.example.andre.seniorproject;
 
-public class Inventory {
+import java.io.Serializable;
+
+public class Inventory  implements Serializable {
 
 String itemName;
 Integer itemQuantity;

@@ -16,5 +16,6 @@
     <string name="buttonAddCustomer"> Add Customer </string>
     <string name="stateView"> State </string>
     <string name="zipcodeView"> Zip Code</string>
+    <string name="title_activity_view_order_info">ViewOrderInfo</string>
 
 </resources>

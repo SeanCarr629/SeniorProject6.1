@@ -1,8 +1,7 @@
 package com.example.andre.seniorproject;
 
-import android.app.DatePickerDialog;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -25,15 +24,15 @@ public class AddNewItem extends AppCompatActivity {
     String itemName;
     Integer itemQuantity;
     int count = 0;
-    DatePickerDialog.OnDateSetListener dateSetListener;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_new_item);
+        setContentView(R.layout.activity_add_new_item2);
 
-        etItemName = (EditText)  findViewById(R.id.etItemName);
+        etItemName = (EditText)  findViewById(R.id.etDate);
 
         etItemQuantity = (EditText) findViewById(R.id.etItemQuantity);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
@@ -42,7 +41,7 @@ public class AddNewItem extends AppCompatActivity {
 
 
         database = FirebaseDatabase.getInstance();
-         reff = database.getReference("Inventory");
+        reff = database.getReference("Inventory");
 
         btnSubmit.setOnClickListener(new OnClickListener() {
 
@@ -70,7 +69,8 @@ public class AddNewItem extends AppCompatActivity {
                                             inventory.setItemQuantity(itemQuantity);
                                             reff.child(snapshot.getKey()).setValue(inventory);
 
-                                            Toast.makeText(AddNewItem.this, "Item Updated", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(AddNewItem.this, "Item Updated",
+                                                    Toast.LENGTH_LONG).show();
 
                                         }
 
@@ -86,13 +86,15 @@ public class AddNewItem extends AppCompatActivity {
                                         Toast.makeText(AddNewItem.this, "Item Added", Toast.LENGTH_LONG).show();
 
                                     }
-                                        count = 0;
+                                    count = 0;
 
                                 }
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
                                 }
                             });
+
+
 
 
 
@@ -111,7 +113,7 @@ public class AddNewItem extends AppCompatActivity {
 
 
 
-}
+    }
 
 
 }

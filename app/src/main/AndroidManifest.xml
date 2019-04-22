@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".ViewOrderInfo"
+            android:label="@string/title_activity_view_order_info"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Orders" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,22 +24,21 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".ProfileActivity"/>
+        <activity android:name=".ProfileActivity" />
         <activity
             android:name=".AddCustomer"
             android:label="@string/appAddCustomer_name" />
-            <activity
-                android:name=".SearchCustomer"
-                android:label="@string/appSearchCustomer_name" />
-            <activity
-                android:name=".DisplayCustomer"
-                android:label="@string/appDisplayCustomer_name" />
-        <activity android:name=".OrderForm"></activity>
+        <activity
+            android:name=".SearchCustomer"
+            android:label="@string/appSearchCustomer_name" />
+        <activity
+            android:name=".DisplayCustomer"
+            android:label="@string/appDisplayCustomer_name" />
+        <activity android:name=".OrderForm" />
         <activity android:name=".SpinnerTest" />
         <activity android:name=".ViewInventory" />
         <activity android:name=".AddNewItem" />
-        <activity android:name=".SeansMainActivity"/>
-
+        <activity android:name=".SeansMainActivity" />
     </application>
 
 </manifest>
