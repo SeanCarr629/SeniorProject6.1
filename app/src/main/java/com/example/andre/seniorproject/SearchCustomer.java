@@ -1,6 +1,7 @@
 package com.example.andre.seniorproject;
 
 
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,12 +12,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.ArrayList;
@@ -24,7 +28,7 @@ import java.util.ArrayList;
 public class SearchCustomer extends AppCompatActivity {
 
     Customer value;
-    ListView viewCustomer;
+    public ListView viewCustomer;
     DatabaseReference reff;
     ArrayList<String> arrayList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
@@ -50,15 +54,15 @@ public class SearchCustomer extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                    value= dataSnapshot.getValue(Customer.class);
+                value= dataSnapshot.getValue(Customer.class);
 
-                    String custID = String.valueOf(dataSnapshot.getKey());
+                String custID = String.valueOf(dataSnapshot.getKey());
 
-                    value.setCustomerID(custID);
+                value.setCustomerID(custID);
 
-                    arrayList.add(value.getFirstName() + " " + value.getLastName());
+                arrayList.add(value.getFirstName() + " " + value.getLastName());
 
-                    arrayAdapter.notifyDataSetChanged();
+                arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -99,7 +103,7 @@ public class SearchCustomer extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int i, int i1, int i2)
             {
                 (SearchCustomer.this).arrayAdapter.getFilter().filter(s);
-                 arrayAdapter.notifyDataSetChanged();
+                arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -128,6 +132,8 @@ public class SearchCustomer extends AppCompatActivity {
 
         });
     }
+
+
 
 }
 

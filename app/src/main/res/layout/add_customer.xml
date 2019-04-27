@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0277BD">
@@ -126,7 +127,7 @@
 
         <Button
             android:id="@+id/buttonAddCustomer"
-            android:layout_width="215dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:background="@color/common_google_signin_btn_text_dark_focused"
@@ -150,38 +151,45 @@
 
         <EditText
             android:id="@+id/FirstName"
+            android:hint="First Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/LastName"
+            android:hint="Last Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:ems="10"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:inputType="textPersonName"/>
 
 
 
         <EditText
             android:id="@+id/companyName"
+            android:hint="Company Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-!,"
             android:textColorLink="@color/common_google_signin_btn_text_dark_pressed"/>
 
 
         <EditText
             android:id="@+id/Phone"
+            android:hint="Phone Number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -193,6 +201,7 @@
 
         <EditText
             android:id="@+id/Email"
+            android:hint="Email Address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -205,6 +214,7 @@
 
         <EditText
             android:id="@+id/Address"
+            android:hint="Company Address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -215,16 +225,19 @@
 
         <EditText
             android:id="@+id/State"
+            android:hint="State"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="15dp"
             android:ems="10"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:inputType="text" />
 
         <EditText
             android:id="@+id/ZipCode"
+            android:hint="Zip Code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

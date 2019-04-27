@@ -17,18 +17,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     private TextView textViewUserEmail;
     private Button buttonLogout;
-    private Button button3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-       //textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
+        //textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
-
         //textViewUserEmail.setText("Welcome ");
-        button3 = (Button) findViewById(R.id.button3);
 
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser()== null){
@@ -39,14 +36,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
         buttonLogout.setOnClickListener(this);
-
-        button3.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, SeansMainActivity.class);
-                startActivity(intent);
-            }
-        });
 
         ImageButton addCustomerButton = (ImageButton) findViewById(R.id.buttonAddCustomer);
         addCustomerButton.setOnClickListener(new View.OnClickListener() {
@@ -67,11 +56,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileActivity.this, SearchCustomer.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
 
         });
     }
+
 
 
     @Override
