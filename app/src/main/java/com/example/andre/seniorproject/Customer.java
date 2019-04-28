@@ -1,5 +1,7 @@
 package com.example.andre.seniorproject;
 
+import java.util.ArrayList;
+
 public class Customer {
 
     private String firstName;
@@ -12,6 +14,8 @@ public class Customer {
     private String zipCode;
     private String fullName;
     private String customerID;
+    private Order order;
+    private ArrayList<Inventory> inventory;
 
 
 
@@ -30,7 +34,13 @@ public class Customer {
         this.state=state;
         this.zipCode= zipCode;
         this.fullName= firstName+ " "+ lastName;
+        this.inventory = new ArrayList<Inventory>();
     }
+
+    public ArrayList<Inventory> getInventory() {
+        return this.inventory;
+    }
+
     public String getFirstName() {
         return firstName;
     }

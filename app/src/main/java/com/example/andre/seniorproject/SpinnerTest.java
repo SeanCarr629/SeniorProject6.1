@@ -1,5 +1,6 @@
 package com.example.andre.seniorproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,7 +26,7 @@ public class SpinnerTest extends AppCompatActivity {
 
 
 
-        String selectedItem, itemName;
+        String selectedItem, itemName, savedID;
         EditText etItemNumber, etItemName;
         DatabaseReference reff, reff2;
         FirebaseDatabase database, database2;
@@ -50,6 +51,8 @@ public class SpinnerTest extends AppCompatActivity {
             database = FirebaseDatabase.getInstance();
             reff = database.getReference();
 
+            Intent i = getIntent();
+            savedID = (String)i.getSerializableExtra("savedID");
 
 
 
@@ -64,13 +67,13 @@ public class SpinnerTest extends AppCompatActivity {
 
                     {
                         database2 = FirebaseDatabase.getInstance();
-                        reff2 = database.getReference("Inventory");
+                        reff2 = database.getReference("Customers").child(savedID)
+                        .child("Inventory");
 
 
                         itemName = etItemName.getText().toString();
 
-                        FirebaseDatabase.getInstance().getReference("Inventory")
-                                .addListenerForSingleValueEvent(new ValueEventListener() {
+                        reff2.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
 

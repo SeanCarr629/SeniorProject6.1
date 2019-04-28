@@ -37,13 +37,21 @@ public class DisplayCustomer extends AppCompatActivity {
 
     DatabaseReference reff1;
     Customer customer1;
-    String id;
+    String id, saveID;
+    Button inventory, orders;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_customer);
+
+
+
+
+        inventory = findViewById(R.id.buttonInventory);
+        orders = findViewById(R.id.buttonOrders);
+
 
         Intent intent= getIntent();
 
@@ -58,6 +66,8 @@ public class DisplayCustomer extends AppCompatActivity {
                 addressDisplay=findViewById(R.id.displayAddress),
                 stateDisplay=findViewById(R.id.displayState),
                 zipCodeDisplay=findViewById(R.id.displayZipCode);
+
+
 
 
         reff1 = FirebaseDatabase.getInstance().getReference("Customers");
@@ -79,6 +89,8 @@ public class DisplayCustomer extends AppCompatActivity {
                 zipCodeDisplay.setText(customer1.getZipCode());
 
                 id= dataSnapshot.getKey();
+
+                saveID = id;
 
 
 
@@ -128,7 +140,47 @@ public class DisplayCustomer extends AppCompatActivity {
             }
         });
 
+
+
+        inventory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(DisplayCustomer.this, ViewInventory.class);
+                i.putExtra("saveID", saveID);
+                startActivity(i);
+
+
+            }
+        });
+
+
+
+        orders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(DisplayCustomer.this, Orders.class);
+                i.putExtra("saveID", saveID);
+                startActivity(i);
+
+
+            }
+        });
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
 
 
     public void deleteCustomer( String customerID)
@@ -138,6 +190,11 @@ public class DisplayCustomer extends AppCompatActivity {
         customerChild.removeValue();
 
     }
+
+
+
+
+
 
 }
 

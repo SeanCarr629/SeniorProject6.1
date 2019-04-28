@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -54,7 +55,7 @@ public class Orders extends AppCompatActivity implements Serializable {
     OrderAdapter adapter;
     Boolean itemExists;
     DataSnapshot snapshot;
-    String key;
+    String key, savedID;
     ArrayList<Order> dates2;
     Boolean sumbitClick;
     Inventory inventory;
@@ -67,6 +68,9 @@ public class Orders extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_order_form);
 
 
+        Intent i = getIntent();
+        savedID = (String)i.getSerializableExtra("saveID");
+
         dates2 = new ArrayList<Order>();
 
 
@@ -78,7 +82,8 @@ public class Orders extends AppCompatActivity implements Serializable {
         adapter = new OrderAdapter(this, list);
 
         database = FirebaseDatabase.getInstance();
-        reff = database.getReference("NewOrders");
+        reff = database.getReference("Customers").child(savedID)
+                .child("Orders");
 
         reff.addChildEventListener(new ChildEventListener() {
             @Override
@@ -205,7 +210,9 @@ public class Orders extends AppCompatActivity implements Serializable {
 
 
 
-                FirebaseDatabase.getInstance().getReference("Inventory").addValueEventListener
+
+
+                FirebaseDatabase.getInstance().getReference("Customers").child(savedID).child("Inventory").addValueEventListener
                         (new ValueEventListener() {
                             @Override
                             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -293,7 +300,7 @@ public class Orders extends AppCompatActivity implements Serializable {
                                         item.setItemQuantity(quantity);
                                         order.getInventory().add(item);
                                         reff.child(snapshot.getKey()).setValue(order);
-
+                                        Toast.makeText(Orders.this, "Order Updated", Toast.LENGTH_LONG).show();
 
 
 
@@ -313,7 +320,7 @@ public class Orders extends AppCompatActivity implements Serializable {
                                     reff.push().setValue(order);
 
 
-
+                                    Toast.makeText(Orders.this, "Order Updated", Toast.LENGTH_LONG).show();
 
 
                                     // viewOrder.setAdapter(adapter);

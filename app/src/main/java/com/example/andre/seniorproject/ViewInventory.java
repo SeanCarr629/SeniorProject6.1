@@ -1,5 +1,6 @@
 package com.example.andre.seniorproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -30,10 +32,31 @@ public class ViewInventory extends AppCompatActivity {
     ArrayList<Inventory> list = new ArrayList<Inventory>();
     EditText etItemNumber;
     ProductAdapter adapter2;
+    Button addItem;
+    String savedID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_inventory);
+
+
+        addItem = findViewById(R.id.btnAddItem);
+
+        Intent i = getIntent();
+        savedID = (String)i.getSerializableExtra("saveID");
+
+
+        addItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(ViewInventory.this, SpinnerTest.class);
+                i.putExtra("savedID", savedID);
+                startActivity(i);
+
+
+            }
+        });
 
 
 
@@ -44,7 +67,7 @@ public class ViewInventory extends AppCompatActivity {
         adapter2 = new ProductAdapter(this, list);
 
         database = FirebaseDatabase.getInstance();
-        reff = database.getReference("Inventory");
+        reff = database.getReference("Customers").child(savedID).child("Inventory");
 
 
         reff.addChildEventListener(new ChildEventListener() {
@@ -134,6 +157,7 @@ public class ViewInventory extends AppCompatActivity {
                                     post.setItemQuantity(quantity);
                                     reff.child(dataSnapshot.getKey()).setValue(post);
                                     adapter2.notifyDataSetChanged();
+                                    Toast.makeText(ViewInventory.this, "Quantity Updated", Toast.LENGTH_LONG).show();
                                 }
 
 
@@ -231,6 +255,7 @@ public class ViewInventory extends AppCompatActivity {
                                 {
                                     dataSnapshot.getRef().removeValue();
                                     adapter2.notifyDataSetChanged();
+                                    Toast.makeText(ViewInventory.this, "Item Deleted", Toast.LENGTH_LONG).show();
                                 }
 
 

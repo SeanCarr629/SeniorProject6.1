@@ -22,12 +22,15 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class AddCustomer extends AppCompatActivity {
 
     EditText firstName1,lastName1,companyName1,phoneNumber1,emailAddress1,address1,state1,zipCode1;
     Button addCust;
     FirebaseDatabase database=FirebaseDatabase.getInstance();
-    DatabaseReference reff;
+    DatabaseReference reff, reff2;
+    ArrayList<Inventory> inventory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +54,11 @@ public class AddCustomer extends AppCompatActivity {
         zipCode1= (EditText) findViewById(R.id.ZipCode);
         zipCode1.addTextChangedListener(mWatcher);
         addCust = (Button) findViewById(R.id.buttonAddCustomer);
+        inventory = new ArrayList<>();
 
 
         reff = database.getReference("Customers");
+
 
 
         addCust.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +91,13 @@ public class AddCustomer extends AppCompatActivity {
         String zipCode= (zipCode1.getText().toString().trim());
 
         Customer customer = new Customer(firstName,lastName,companyName,phoneNumber,email,address,state,zipCode,fullName);
-        reff.push().setValue(customer);
+
+        String key = reff.push().getKey();
+        reff.child(key).setValue(customer);
+
+
+
+
 
     }
 
