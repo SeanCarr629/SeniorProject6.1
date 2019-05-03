@@ -30,12 +30,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class DisplayCustomer extends AppCompatActivity {
 
-    DatabaseReference reff1;
+    DatabaseReference reff1,reff2;
     Customer customer1;
     String id, saveID;
     Button inventory, orders;
@@ -120,76 +121,43 @@ public class DisplayCustomer extends AppCompatActivity {
 
         });
 
-        //delete customer
-        final Button deleteCustomerButton = findViewById(R.id.buttonDeleteCustomer);
+        //update customer
 
-        deleteCustomerButton.setOnClickListener(new View.OnClickListener() {
+        Button updateCustomerButton = findViewById(R.id.buttonUpdateCustomer);
+
+        updateCustomerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                reff1.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                deleteCustomer(id);
+                        reff2 = FirebaseDatabase.getInstance().getReference("Customers").child(id);
+                        reff2.child("firstName").setValue(firstDisplay.getText().toString());
+                        reff2.child("lastName").setValue(lastDisplay.getText().toString());
+                        reff2.child("companyName").setValue(companyDisplay.getText().toString());
+                        reff2.child("companyAddress").setValue(addressDisplay.getText().toString());
+                        reff2.child("emailAddress").setValue(emailDisplay.getText().toString());
+                        reff2.child("phoneNumber").setValue(phoneDisplay.getText().toString());
+                        reff2.child("state").setValue(stateDisplay.getText().toString());
+                        reff2.child("zipCode").setValue(zipCodeDisplay.getText().toString());
+                        reff2.child("fullName").setValue(firstDisplay.getText().toString()+ ' ' + lastDisplay.getText().toString());
 
+                    }
 
-                Toast.makeText(getApplicationContext(),"Customer Deleted", Toast.LENGTH_LONG).show();
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                    }
+                });
 
-                finish();
-
-
+                Toast.makeText(getApplicationContext(),"Customer Information Updated", Toast.LENGTH_LONG).show();
             }
         });
-
-
-
-        inventory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(DisplayCustomer.this, ViewInventory.class);
-                i.putExtra("saveID", saveID);
-                startActivity(i);
-
-
-            }
-        });
-
-
-
-        orders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(DisplayCustomer.this, Orders.class);
-                i.putExtra("saveID", saveID);
-                startActivity(i);
-
-
-            }
-        });
-
-
-
-
-
-
 
     }
 
-
-
-
-
-
-
-
-    public void deleteCustomer( String customerID)
-    {
-        DatabaseReference customerChild = FirebaseDatabase.getInstance().getReference("Customers").child(customerID);
-
-        customerChild.removeValue();
-
-    }
 
 
 

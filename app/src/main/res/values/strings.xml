@@ -17,7 +17,7 @@
     <string name="stateView"> State </string>
     <string name="zipcodeView"> Zip Code</string>
     <string name="title_activity_view_order_info">ViewOrderInfo</string>
-    <string name="buttonDeleteCustomer"> Delete </string>
+    <string name="buttonDeleteCustomer"> Update </string>
     <string name="buttonInventory"> Inventory </string>
     <string name="buttonOrders"> Orders</string>
 

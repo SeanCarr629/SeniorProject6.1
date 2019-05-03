@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/woodblue"
-    >
+    android:background="#0277BD">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -13,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:orientation="vertical"
@@ -21,97 +20,97 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+        <EditText
             android:id="@+id/displayFirstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="7dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addressView" />
 
-        <TextView
+        <EditText
             android:id="@+id/displayLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="9dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/firstView" />
 
-        <TextView
+        <EditText
             android:id="@+id/displayCompanyName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="11dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lastView" />
 
-        <TextView
+        <EditText
             android:id="@+id/displayPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="13dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/companyView" />
 
-        <TextView
+        <EditText
             android:id="@+id/displayEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="15dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phoneView" />
 
-        <TextView
+        <EditText
             android:id="@+id/displayAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="17dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailView" />
 
-        <TextView
+        <EditText
             android:id="@+id/displayState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="42dp"
+            android:layout_marginTop="19dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addressView" />
 
-        <TextView
+        <EditText
             android:id="@+id/displayZipCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="21dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +119,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonDeleteCustomer"
+        android:id="@+id/buttonUpdateCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -143,7 +142,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonOrders"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonDeleteCustomer" />
+        app:layout_constraintStart_toEndOf="@+id/buttonUpdateCustomer" />
 
     <Button
         android:id="@+id/buttonOrders"
