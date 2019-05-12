@@ -49,7 +49,7 @@ public class Orders extends AppCompatActivity implements Serializable {
     Spinner spinner;
     Integer quantity;
     DatePickerDialog.OnDateSetListener dateSetListener;
-    Integer count = 0;
+    Integer count = 0, count2 = 0;
     ListView viewOrder;
     ArrayList<Order> list;
     OrderAdapter adapter;
@@ -137,7 +137,7 @@ public class Orders extends AppCompatActivity implements Serializable {
         });
 
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        Button fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -298,7 +298,16 @@ public class Orders extends AppCompatActivity implements Serializable {
                                         Inventory item = new Inventory();
                                         item.setItemName(selectedItem);
                                         item.setItemQuantity(quantity);
-                                        order.getInventory().add(item);
+                                        for (int i = 0; i < order.inventory.size(); i++) {
+                                            if (order.inventory.get(i).itemName.equals(selectedItem)){
+                                                order.inventory.get(i).setItemQuantity(quantity);
+                                                count2 = 1;
+                                            }
+                                        }
+                                        if(count2 == 0){
+                                            order.getInventory().add(item);}
+
+
                                         reff.child(snapshot.getKey()).setValue(order);
                                         Toast.makeText(Orders.this, "Order Updated", Toast.LENGTH_LONG).show();
 
@@ -329,7 +338,7 @@ public class Orders extends AppCompatActivity implements Serializable {
 
 
                                 count = 0;
-
+                                count2 = 0;
 
                             }
 

@@ -16,7 +16,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
-        android:text="Order Form"
+        android:text="Orders"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -31,12 +31,11 @@
 
     </ListView>
 
-    <android.support.design.widget.FloatingActionButton
+    <Button
         android:id="@+id/fab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        android:text="Add/Edit Order" />
 
 
 </LinearLayout>

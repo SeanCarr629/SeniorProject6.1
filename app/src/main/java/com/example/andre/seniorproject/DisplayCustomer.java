@@ -156,6 +156,34 @@ public class DisplayCustomer extends AppCompatActivity {
             }
         });
 
+
+        inventory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(DisplayCustomer.this, ViewInventory.class);
+                i.putExtra("saveID", saveID);
+                startActivity(i);
+
+
+            }
+        });
+
+
+
+        orders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(DisplayCustomer.this, Orders.class);
+                i.putExtra("saveID", saveID);
+                startActivity(i);
+
+
+            }
+        });
+
+
     }
 
 

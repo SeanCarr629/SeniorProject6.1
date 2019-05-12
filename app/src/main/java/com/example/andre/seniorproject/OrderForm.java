@@ -126,12 +126,15 @@ public class OrderForm extends AppCompatActivity {
                date = etDate.getText().toString();
                quantity = Integer.parseInt(etQuantity.getText().toString());
 
-                Inventory item = new Inventory();
+
+               Inventory item = new Inventory();
                 item.setItemName(spinnerItem);
                 item.setItemQuantity(quantity);
 
 
                 Order order = new Order(date,item);
+
+
 
                 reff.push().setValue(order);
 
