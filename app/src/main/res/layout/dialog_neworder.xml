@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
-        android:text="ADD ORDER"
+        android:text="ADD/EDIT ORDER"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="30sp"
         android:textStyle="bold" />
