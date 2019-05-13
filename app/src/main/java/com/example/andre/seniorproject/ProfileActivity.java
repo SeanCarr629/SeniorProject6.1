@@ -37,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         buttonLogout.setOnClickListener(this);
 
-        ImageButton addCustomerButton = (ImageButton) findViewById(R.id.buttonAddCustomer);
+        Button addCustomerButton = (Button) findViewById(R.id.buttonAddCustomer);
         addCustomerButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -50,7 +50,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
-        ImageButton searchCustomerButton = (ImageButton) findViewById(R.id.imageButtonSearch);
+        Button searchCustomerButton = (Button) findViewById(R.id.imageButtonSearch);
         searchCustomerButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

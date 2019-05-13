@@ -9,58 +9,29 @@
     tools:context=".ProfileActivity">
 
 
-        <ImageButton
-            android:id="@+id/buttonAddCustomer"
-            android:layout_width="72dp"
-            android:layout_height="69dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/black"
-            android:contentDescription="@string/textCust"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButtonSearch"
-            app:srcCompat="@mipmap/ic_addcust_img" />
+    <Button
+        android:id="@+id/buttonAddCustomer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:text="New Customer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonSearch" />
 
-        <TextView
-            android:id="@+id/textCust"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="56dp"
-            android:text="@string/textCust"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/buttonAddCustomer"
-            app:layout_constraintTop_toBottomOf="@+id/textSearch" />
-
-        <ImageButton
-            android:id="@+id/imageButtonSearch"
-            android:layout_width="72dp"
-            android:layout_height="69dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/black"
-            android:contentDescription="@string/textSearch"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/search" />
-
-        <TextView
-            android:id="@+id/textSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="32dp"
-            android:gravity="center_horizontal"
-            android:text="@string/textSearch"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/imageButtonSearch"
-            app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/imageButtonSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:text="Search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <Button
