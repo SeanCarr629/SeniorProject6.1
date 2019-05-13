@@ -45,7 +45,7 @@ public class ViewOrderInfo extends AppCompatActivity implements Serializable {
         Order order = (Order)i.getSerializableExtra("object");
 
 
-
+//
 
 
         orderInfo = (ListView)findViewById(R.id.lvOrderInfo);
